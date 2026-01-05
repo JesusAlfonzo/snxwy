@@ -1,22 +1,67 @@
+---
+// ---Imports---
+
+// Global CSS
+import "../styles/global.css";
+
+// Fonts
+import "@fontsource/ubuntu";
+
+// Components
+import Navbar from "../components/ui/Navbar.astro";
+
+// Title Page Prop
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <!-- Page Content 4/3 Grid Background -->
+  <body class="bg-black flex justify-center">
+    <div
+      class="relative w-full md:w-[75vw] lg:w-[65vw] min-h-screen bg-white shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-x-hidden"
+    >
+      {/* Aquí va tu patrón de fondo (Magenta Orb Grid) */}
+      <div
+        class="absolute inset-0 z-0 pointer-events-none"
+        style="
+                background: white;
+                background-image: 
+                    linear-gradient(to right, rgba(71,85,105,0.15) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(71,85,105,0.15) 1px, transparent 1px),
+                    radial-gradient(circle at 50% 60%, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.05) 40%, transparent 70%);
+                background-size: 40px 40px, 40px 40px, 100% 100%;
+            "
+      >
+      </div>
+
+      <!-- Header Navbar -->
+      <header class="relative z-20 w-full">
+        <Navbar />
+      </header>
+
+      <!-- Main Content-->
+      <main class="relative z-10 p-8 ml-40 mr-40">
+        <slot />
+      </main>
+    </div>
+  </body>
 </html>
 
+<!-- Styles -->
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "ubuntu", sans-serif;
+  }
 </style>
