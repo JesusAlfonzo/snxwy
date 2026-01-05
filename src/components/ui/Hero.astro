@@ -1,0 +1,77 @@
+---
+/* Puedes pasar props aquí si quieres hacerlo dinámico más adelante */
+---
+
+<div
+  class="flex flex-col md:flex-row items-center justify-center md:items-start gap-8 mt-10 mb-8"
+>
+  <div class="relative w-64 h-64 shrink-0 group">
+    <img
+      src="/images/profile/unknowman.webp"
+      alt="snowy"
+      class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-lg transition-opacity duration-500 opacity-100 group-hover:opacity-0"
+    />
+    <img
+      src="/images/profile/importantpeople.webp"
+      alt="snowy and his friends"
+      class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-lg transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+    />
+  </div>
+
+  <div class="flex flex-col text-center md:text-left">
+    <h1 class="text-4xl font-bold text-slate-900">Snowy</h1>
+
+    <h4
+      class="text-2xl font-semibold text-neutral-700 hover:text-blue-600 transition duration-300 cursor-default"
+    >
+      Tu figura religiosa disruptiva favorita
+    </h4>
+
+    <div class="mt-4 space-y-2">
+      <p class="text-slate-500">
+        <span class="text-red-500 font-bold">Nombre:</span>
+        <span class="text-slate-800 font-medium">Desconocido</span>
+      </p>
+
+      <p class="text-slate-500 font-medium">
+        <span class="text-orange-500 font-bold">Edad:</span>
+        <span class="text-slate-800 font-medium">Importa ?</span>
+      </p>
+
+      <p class="text-slate-500 font-medium">
+        <span class="text-indigo-600 font-bold">Ubicación:</span>
+        <span class="text-slate-800 italic font-medium"
+          >Caracas | Venezuela</span
+        >
+      </p>
+    </div>
+
+    <div class="mt-5 flex flex-col gap-2">
+      <span
+        class="text-[10px] uppercase tracking-[0.2em] text-slate-600 font-bold"
+      >
+        Actualmente escuchando
+      </span>
+
+      <div
+        class="flex items-center gap-3 bg-black text-white w-fit px-4 py-2 rounded-sm border border-neutral-800 shadow-xl"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-white"
+          ></span>
+        </span>
+
+        <span class="text-xs font-mono tracking-tighter uppercase">
+          $uicideboy$ - Monochromatic
+        </span>
+
+        <span class="text-[10px] text-neutral-500 font-mono">
+          00:24 / 02:17
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
