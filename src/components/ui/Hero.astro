@@ -1,5 +1,14 @@
 ---
-/* Componente Hero - Optimización de Alineación y Móvil */
+/* Hero.astro - Versión Final Optimizada 
+  - Imágenes cargadas desde src/assets/ para máximo rendimiento.
+  - Alineación técnica corregida (baseline).
+  - Estética Monocromática / Silent Hill.
+*/
+import { Image } from "astro:assets";
+
+// Asegúrate de que los archivos existan en estas rutas
+import unknownMan from "../../assets/images/profile/unknowman.webp";
+import importantPeople from "../../assets/images/profile/importantpeople.webp";
 ---
 
 <div
@@ -10,14 +19,24 @@
       class="absolute -inset-2 border border-neutral-200 rounded-2xl pointer-events-none opacity-50"
     >
     </div>
-    <img
-      src="/images/profile/unknowman.webp"
+
+    <Image
+      src={unknownMan}
       alt="snowy"
+      width={600}
+      height={600}
+      loading="eager"
+      fetchpriority="high"
       class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl transition-all duration-700 grayscale group-hover:grayscale-0 opacity-100 group-hover:opacity-0"
     />
-    <img
-      src="/images/profile/importantpeople.webp"
+
+    <Image
+      src={importantPeople}
       alt="snowy and his friends"
+      width={600}
+      height={600}
+      loading="lazy"
+      fetchpriority="low"
       class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl transition-all duration-700 grayscale-0 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100"
     />
   </div>
@@ -41,7 +60,7 @@
       <div class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-3">
         <span
           class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold shrink-0 md:w-24"
-          >Identidad:</span
+          >Identidad</span
         >
         <span
           class="text-base md:text-lg text-neutral-800 font-mono tracking-tight"
@@ -52,7 +71,7 @@
       <div class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-3">
         <span
           class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold shrink-0 md:w-24"
-          >Cronología:</span
+          >Cronología</span
         >
         <span
           class="text-base md:text-lg text-neutral-800 font-mono tracking-tight"
@@ -63,9 +82,10 @@
       <div class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-3">
         <span
           class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-bold shrink-0 md:w-24"
-          >Coordenadas:</span
+          >Coordenadas</span
         >
-        <span class="text-base md:text-lg text-neutral-800 italic font-mono"
+        <span
+          class="text-base md:text-lg text-neutral-800 italic font-mono leading-none"
           >Caracas, VZLA</span
         >
       </div>
@@ -91,7 +111,7 @@
         </div>
         <span
           class="text-[9px] uppercase tracking-[0.3em] text-neutral-400 font-medium"
-          >Escuchando a</span
+          >Listening to</span
         >
       </div>
 
@@ -112,6 +132,7 @@
 </div>
 
 <style>
+  /* Animación de las barras de música */
   @keyframes music-bar {
     0%,
     100% {

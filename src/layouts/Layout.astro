@@ -1,5 +1,5 @@
 ---
-// ---Imports---
+// Layout.astro - Estética Minimalista y Rendimiento Optimizado
 import "../styles/global.css";
 import "@fontsource/ubuntu";
 import Navbar from "../components/ui/Navbar.astro";
@@ -17,64 +17,87 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
 
-  <body class="bg-black flex justify-center">
+  <body class="bg-[#1a1a1a] flex justify-center m-0 p-0">
     <div
-      class="relative w-full md:w-[75vw] lg:w-[65vw] min-h-screen bg-white shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+      class="relative w-full md:w-[75vw] lg:w-[65vw] min-h-screen bg-[#f5f5f5] shadow-[0_0_60px_rgba(0,0,0,0.4)] flex flex-col"
     >
       <div
-        class="fixed inset-0 z-0 pointer-events-none w-full md:w-[75vw] lg:w-[65vw] mx-auto"
-        style="
-            background: white;
-            background-image: 
-                linear-gradient(to right, rgba(71,85,105,0.15) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(71,85,105,0.15) 1px, transparent 1px),
-                radial-gradient(circle at 50% 60%, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.05) 40%, transparent 70%);
-            background-size: 40px 40px, 40px 40px, 100% 100%;
-            
-            /* EFECTO FADE: Máscara que desvanece el contenido al final */
-            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
-            mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
-        "
+        class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+        style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);"
       >
+        <div
+          class="absolute inset-0"
+          style="background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+                background-size: 30px 30px;"
+        >
+        </div>
+
+        <div
+          class="absolute inset-0 opacity-[0.03] mix-blend-multiply noise-bg"
+        >
+        </div>
       </div>
 
       <header class="relative z-20 w-full">
         <Navbar />
       </header>
 
-      <main class="relative z-10 p-8 md:px-20 lg:px-40">
+      <main class="relative z-10 p-8 md:px-20 lg:px-40 flex-1">
         <slot />
       </main>
+
+      <footer class="relative z-10 py-10 text-center">
+        <span class="text-[9px] uppercase tracking-[0.4em] text-neutral-400">
+          Exploración de la Psiquis — 2026
+        </span>
+      </footer>
     </div>
   </body>
 </html>
 
 <style is:global>
+  /* CONFIGURACIÓN GLOBAL */
   html,
   body {
     margin: 0;
-    min-height: 100%;
+    padding: 0;
     width: 100%;
+    min-height: 100%;
     font-family: "ubuntu", sans-serif;
+    animation: fadeIn 0.5s ease-in;
+
+    /* 1. Mantiene el layout centrado y estable */
     scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+
+    /* 2. Oculta el scrollbar en Firefox */
+    scrollbar-width: none;
+
+    /* 3. Oculta el scrollbar en Internet Explorer y Edge antiguo */
+    -ms-overflow-style: none;
   }
 
-  /* --- Estilización del Scroll --- */
-
-  /* Firefox (estándar actual) */
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: #d1d1d1 transparent; /* Color del scroll y del fondo */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  /* Ocultar scrollbar en Chrome, Safari y Edge */
+  /* 4. Oculta el scrollbar en Chrome, Safari y Edge moderno (Webkit) */
   ::-webkit-scrollbar {
     display: none;
+    width: 0;
+    height: 0;
   }
 
-  /* Ocultar scrollbar en Firefox y IE/Edge antiguo */
-  html {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  /* TEXTURA DE RUIDO (Data URI) */
+  .noise-bg {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyACMAAAC0ID9IAAAABlBMVEUAAAD///+l2Z/dAAAAVklEQVRIx+3Myw2AMAhE0S8NoAn9V0In9GCD6SDRSJhAsu9mH8m+DEDfA6A7A6D7GgA9pAn9xwLo6QTo8QZo6QTo8QZo6QTo8QZo6QTo8QZo6QTo8QZo6QTof56yGz6S999lAAAAAElFTkSuQmCC");
+    background-repeat: repeat;
   }
 </style>
