@@ -1,24 +1,63 @@
-<!-- 
-  Componente de Navegación:
-  Este componente renderiza la barra de navegación principal del sitio web.
--->
-<nav class="flex justify-center items-center gap-4 p-11">
-  <!-- 
-    Lista de enlaces de navegación  -->
-  <ul class="flex gap-34">
-    <!-- 
-      Enlace a la sección 'Manifesto'
-    -->
-    <a href="#Manifesto" class="border-b hover:text-red-600"
-      ><li></li>Manifesto</a
-    >
-    <!-- 
-      Enlace a la página de 'Inicio' 
-    -->
-    <a href="/" class="border-b hover:text-orange-600"><li></li>Inicio</a>
-    <!-- 
-      Enlace a la sección 'Mente'
-    -->
-    <a href="#" class="border-b hover:text-indigo-600"><li></li>Mente</a>
+---
+// Obtenemos la ruta actual para saber qué enlace resaltar
+const { pathname } = Astro.url;
+
+// Una pequeña función para verificar si la ruta coincide
+// Eliminamos las barras diagonales al final para evitar errores de comparación
+const isActive = (path: string) => {
+  if (path === "/" && pathname === "/") return true;
+  if (path !== "/" && pathname.startsWith(path)) return true;
+  return false;
+};
+
+// Clases para el estado ACTIVO (Subrayado fijo)
+const activeClass = "text-neutral-900 border-b border-neutral-900 pb-1";
+
+// Clases para el estado INACTIVO (Gris con efecto hover)
+const inactiveClass =
+  "text-neutral-400 hover:text-neutral-900 transition-all duration-300 relative group";
+---
+
+<nav class="flex justify-center items-center py-8 md:py-11 px-6">
+  <ul class="flex gap-8 md:gap-20 items-center justify-center">
+    <li>
+      <a
+        href="#Manifesto"
+        class={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold ${inactiveClass}`}
+      >
+        Manifesto
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-[1px] bg-neutral-900 transition-all duration-300 group-hover:w-full"
+        ></span>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/"
+        class={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold ${isActive("/") ? activeClass : inactiveClass}`}
+      >
+        Inicio
+        {
+          !isActive("/") && (
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-neutral-900 transition-all duration-300 group-hover:w-full" />
+          )
+        }
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="/mind"
+        class={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold ${isActive("/mind") ? activeClass : inactiveClass}`}
+      >
+        Mente
+        {
+          !isActive("/mind") && (
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-neutral-900 transition-all duration-300 group-hover:w-full" />
+          )
+        }
+      </a>
+    </li>
   </ul>
 </nav>
