@@ -2,12 +2,20 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "url";
-
 import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
+  // 1. El output va aquí (nivel raíz)
+  output: 'static',
+
+  // 2. El adaptador de Vercel va aquí con sus opciones
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
+
   vite: {
+    // 3. Solo el plugin de Tailwind va aquí
     plugins: [tailwindcss()],
     resolve: {
       alias: {
@@ -19,6 +27,4 @@ export default defineConfig({
       },
     },
   },
-
-  adapter: vercel(),
 });
