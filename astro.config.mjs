@@ -3,6 +3,8 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "url";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -17,4 +19,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: vercel(),
 });
