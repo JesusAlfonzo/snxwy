@@ -1,7 +1,8 @@
 ---
 // Imports
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/ui/Hero.astro";
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/ui/Hero.astro";
+import Disclaimer from "@components/ui/Disclaimer.astro";
 ---
 
 <Layout title="Snowy | Main">
@@ -102,5 +103,9 @@ import Hero from "../components/ui/Hero.astro";
         </p>
       </section>
     </article>
+  </section>
+
+  <section>
+    <Disclaimer />
   </section>
 </Layout>
