@@ -1,8 +1,102 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Navbar from "../components/ui/Navbar.astro"
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import mindcover from "@assets/images/profile/mindcover.webp";
+import CardChapter from "@components/ui/CardChapter.astro";
 ---
 
-<Layout title ="Snowy | Mente">
-    
+<Layout title="Snowy | Mente">
+  <!-- Banner -->
+  <section>
+    <Image
+      src={mindcover}
+      alt="mindcover"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </section>
+
+  <!-- titulo, galeria y capitulos -->
+  <nav
+    class="flex justify-between items-end mt-10 border-b border-neutral-500 pb-2"
+  >
+    <div class="flex justify-start">
+      <h1
+        class="text-3xl md:text-5xl font-bold tracking-tighter text-neutral-900"
+      >
+        Capitulos
+      </h1>
+    </div>
+
+    <div class="flex justify-end">
+      <a href="#">
+        <button
+          class="border border-neutral-500 px-8 py-3 text-base font-medium text-white hover:bg-red-600 hover:text-black bg-black/90 transition-colors delay-100"
+        >
+          Galería
+        </button>
+      </a>
+    </div>
+  </nav>
+
+  <section class="mt-8">
+    <div
+      class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+    >
+      <CardChapter
+        title="Introduccion"
+        subtitle="El inicio"
+        blocked={true}
+        image="profile/introduction.webp"
+      />
+      <CardChapter
+        title="Paraiso"
+        subtitle="2019"
+        blocked={true}
+        image="profile/idkwhoishim.webp"
+      />
+      <CardChapter
+        title="Preguntas"
+        subtitle="2020"
+        blocked={true}
+        image="profile/questions.webp"
+      />
+      <CardChapter
+        title="El Inicio del Fin"
+        subtitle="2021"
+        blocked={true}
+        image="profile/unknowman.webp"
+      />
+      <CardChapter
+        title="Pozo"
+        subtitle="2022"
+        blocked={true}
+        image="profile/unknowman.webp"
+      />
+      <CardChapter
+        title="Cambios"
+        subtitle="2023"
+        blocked={true}
+        image="profile/unknowman.webp"
+      />
+      <CardChapter
+        title="Amigos"
+        subtitle="2024"
+        blocked={true}
+        image="profile/unknowman.webp"
+      />
+      <CardChapter
+        title="Estres"
+        subtitle="2025"
+        blocked={true}
+        image="profile/unknowman.webp"
+      />
+      <CardChapter
+        title="Futuro"
+        subtitle="2026"
+        blocked={true}
+        image="profile/unknowman.webp"
+      />
+    </div>
+  </section>
 </Layout>
