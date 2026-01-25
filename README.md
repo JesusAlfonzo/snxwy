@@ -1,46 +1,56 @@
-# Astro Starter Kit: Basics
+SNXWY - Espacio Personal de Creación
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+> Un proyecto personal de expresión artística y vulnerabilidad, donde la tecnología encuentra la psiquis humana.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> 🌌 Sobre el Proyecto
+> SNXWY es mi espacio personal de creación, un refugio digital donde por primera vez decido compartir aspectos muy profundos de mi identidad. Este proyecto nace de la necesidad de romper el silencio y crear un lenguaje donde la **música, la tecnología y lo visual** den peso y textura a mis sentimientos más internos.
 
-## 🚀 Project Structure
+> Inspiraciones Artísticas
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Silent Hill** - La estética psicológica y la exploración de la mente humana
+- **Música Lo-Fi** - La calma melancólica que acompaña la introspección
+- **Suicideboy$** - La honestidad cruda del rap underground y la expresión sin filtros
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+  📜 Manifiesto de Identidad
+  Este proyecto se rige por principios fundamentales que guían mi proceso creativo:
+  
+  I. Propósito: El Eco de la Psiquis
+  Durante años, el silencio fue mi refugio, pero también mi limitación. Mi propósito es romper la barrera de lo indecible mediante un lenguaje híbrido entre tecnología y arte.
+  
+  II. Intenciones: La Vulnerabilidad como Motor
+  Mi intención es desnudar mi identidad ante quien decida observar. Comparto mis luces y, con la misma honestidad, mis sombras.
+  
+  III. Principios Fundamentales
+- **Creatividad y Libertad** - Herramientas de expansión
+- **Aceptación y Perdón** - Para sanar el pasado
+- **Constancia y Confianza** - Para construir el futuro
+- **Intimidad y Paz** - El estado final de cada obra
+  
+  IV. Estética: La Belleza de lo Invisible
+  Mi universo se construye con fragmentos de lo que amo y lo que me obsesiona. Este proyecto tiene la textura de los **colores opacos y grises**, la calma del **Lo-Fi** y la complejidad de la psiquis humana.
+  
+  >🛠 Aspectos Técnicos
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+  Construido como un espacio web personal utilizando tecnologías modernas que permiten la expresión creativa:
+  
+  
+  >Tecnologías Utilizadas
+- Astro - Framework moderno para sitios rápidos y optimizados
+- Tailwind CSS - Sistema de diseño utilitario para estética personalizada
+- TypeScript - Tipado seguro para mantener la integridad del código
+  Comandos de Desarrollo
+  | Comando | Acción |
+  |--------|--------|
+  | pnpm install | Instala las dependencias del proyecto |
+  | pnpm dev | Inicia el servidor de desarrollo en localhost:4321 |
+  | pnpm build | Construye el sitio para producción en ./dist/ |
+  | pnpm preview | Previsualiza la construcción localmente |
+  | pnpm astro ... | Ejecuta comandos CLI de Astro |
+  🎭 Invitación a Explorar
+  Este espacio es para quienes me conocen y para quienes se sienten atraídos por la exploración honesta de la identidad humana. Si encuentras resonancia en estas expresiones, te invito a explorar el sitio completo y sumergirte en este universo personal.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## "La verdadera libertad no es ausencia de cadenas, es la valentía de ser uno mismo ante el mundo."
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+> Nota: Este es un proyecto vivo en constante evolución, reflejo de mi propio viaje personal de autodescubrimiento y creación.
