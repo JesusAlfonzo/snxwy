@@ -1,0 +1,64 @@
+---
+// ThemeToggle.astro
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label="Alternar modo claro y oscuro"
+  title="Alternar tema"
+  class="relative flex items-center justify-center w-8 h-8 rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:border-neutral-400 dark:hover:border-neutral-500 bg-white/40 dark:bg-neutral-800/40 backdrop-blur-xs transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-1 focus:ring-neutral-400"
+>
+  <!-- Icono Sol (se muestra en modo oscuro para volver a claro) -->
+  <svg
+    class="w-4 h-4 hidden dark:block transition-transform duration-300"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="1.8"
+  >
+    <circle cx="12" cy="12" r="4"></circle>
+    <path
+      stroke-linecap="round"
+      d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+    ></path>
+  </svg>
+
+  <!-- Icono Luna (se muestra en modo claro para ir a oscuro) -->
+  <svg
+    class="w-4 h-4 block dark:hidden transition-transform duration-300"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="1.8"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  function setupThemeToggle() {
+    const buttons = document.querySelectorAll("[data-theme-toggle]");
+    buttons.forEach((btn) => {
+      // Reemplazamos listener previo para evitar duplicados en ClientRouter
+      btn.replaceWith(btn.cloneNode(true));
+    });
+
+    const refreshedButtons = document.querySelectorAll("[data-theme-toggle]");
+    refreshedButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        const nextTheme = isDark ? "light" : "dark";
+        document.documentElement.classList.toggle("dark", nextTheme === "dark");
+        localStorage.setItem("theme", nextTheme);
+      });
+    });
+  }
+
+  setupThemeToggle();
+  document.addEventListener("astro:after-swap", setupThemeToggle);
+</script>

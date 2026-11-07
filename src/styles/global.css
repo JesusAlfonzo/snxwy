@@ -1,2 +1,88 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-surface-light: #f4f5f7;
+  --color-surface-dark: #121316;
+}
+
+/* ==========================================================================
+   CONFIGURACIÓN Y RESET GLOBAL
+   ========================================================================== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: "ubuntu", sans-serif;
+  animation: fadeIn 0.4s ease-in;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ocultar barra de desplazamiento en Webkit */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* ==========================================================================
+   TEXTURA DE RUIDO ANALÓGICO
+   ========================================================================== */
+.noise-bg {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyACMAAAC0ID9IAAAABlBMVEUAAAD///+l2Z/dAAAAVklEQVRIx+3Myw2AMAhE0S8NoAn9V0In9GCD6SDRSJhAsu9mH8m+DEDfA6A7A6D7GgA9pAn9xwLo6QTo8QZo6QTo8QZo6QTo8QZo6QTo8QZo6QTof56yGz6S999lAAAAAElFTkSuQmCC");
+  background-repeat: repeat;
+}
+
+/* ==========================================================================
+   PATRÓN GLOBAL BLUEPRINT + RETÍCULA TÉCNICA
+   ========================================================================== */
+.blueprint-bg {
+  background-color: #f4f5f7;
+  background-image:
+    /* 1. Crosshairs técnicos en la cuadrícula mayor (100px) */
+    radial-gradient(circle at 1px 1px, rgba(14, 116, 144, 0.22) 1.5px, transparent 0),
+    /* 2. Cuadrícula mayor (100px x 100px) - Trazado blueprint */
+    linear-gradient(to right, rgba(14, 116, 144, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.08) 1px, transparent 1px),
+    /* 3. Cuadrícula menor (20px x 20px) - Retícula milimetrada */
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size:
+    100px 100px,
+    100px 100px, 100px 100px,
+    20px 20px, 20px 20px;
+  background-position:
+    -0.5px -0.5px,
+    0 0, 0 0,
+    0 0, 0 0;
+  transition: background-color 0.3s ease;
+}
+
+.dark .blueprint-bg {
+  background-color: #121316;
+  background-image:
+    /* 1. Crosshairs técnicos cian suave */
+    radial-gradient(circle at 1px 1px, rgba(56, 189, 248, 0.28) 1.5px, transparent 0),
+    /* 2. Cuadrícula mayor (100px) tenue */
+    linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    /* 3. Retícula menor (20px) sutil */
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
