@@ -1,0 +1,445 @@
+---
+// Manifesto.astro - Fusión: Consola de Terminal + Códice Táctico de Doctrina
+---
+
+<section
+  id="Manifesto"
+  class="mt-16 mb-20 w-full scroll-mt-24"
+  aria-label="Códice y Manifiesto de Identidad"
+>
+  <!-- MARCO DE CONSOLA / TERMINAL DE DOCTRINA MIL-SPEC -->
+  <div
+    class="relative rounded-2xl border border-neutral-300 dark:border-neutral-800 bg-white/60 dark:bg-[#141519]/75 backdrop-blur-xs shadow-sm overflow-hidden transition-all duration-300"
+  >
+    <!-- BARRA SUPERIOR DE CONTROL DE TERMINAL -->
+    <div
+      class="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200/90 dark:border-neutral-800/80 px-5 sm:px-8 py-4 bg-neutral-100/70 dark:bg-neutral-900/70 font-mono text-[10px] sm:text-[11px]"
+    >
+      <div class="flex items-center gap-2.5">
+        <span class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+        </span>
+        <span class="text-neutral-300 dark:text-neutral-700 mx-1">|</span>
+        <span class="text-neutral-700 dark:text-neutral-300 font-bold uppercase tracking-wider">
+          CONSOLA_DOCTRINA // CODEX-2026
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-neutral-400 dark:text-neutral-500 hidden sm:inline">
+          PATH: ~/snxwy/manifesto/index.sys
+        </span>
+        <span
+          class="px-2.5 py-0.5 rounded border border-neutral-300 dark:border-neutral-700 bg-neutral-200/60 dark:bg-neutral-800/60 text-neutral-600 dark:text-neutral-300 font-bold text-[9px] tracking-wider uppercase"
+        >
+          4 MÓDULOS SINCRONIZADOS
+        </span>
+      </div>
+    </div>
+
+    <!-- NAVEGADOR DE ÍNDICE TÁCTICO RÁPIDO (TABS INTERACTIVOS DE ARCHIVO) -->
+    <div
+      aria-label="Índice de archivos de doctrina"
+      class="grid grid-cols-2 sm:grid-cols-4 border-b border-neutral-200/90 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/50 font-mono text-[10px] sm:text-[11px]"
+    >
+      <a
+        href="#doc-proposito"
+        data-codex-target="doc-proposito"
+        class="codex-nav-btn group relative px-4 py-3 sm:py-3.5 text-left border-r border-b sm:border-b-0 border-neutral-200/80 dark:border-neutral-800 hover:bg-white dark:hover:bg-neutral-800/50 transition-colors duration-200"
+      >
+        <span class="nav-line absolute top-0 left-0 w-full h-[2px] bg-red-600 dark:bg-red-500 transition-transform duration-200 origin-left scale-x-0"></span>
+        <div class="flex items-center justify-between text-[8px] text-neutral-400 dark:text-neutral-500 mb-0.5">
+          <span class="font-bold text-red-600 dark:text-red-400">01</span>
+          <span>.DAT</span>
+        </div>
+        <div class="font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white uppercase tracking-wider truncate">
+          Propósito
+        </div>
+      </a>
+
+      <a
+        href="#doc-intenciones"
+        data-codex-target="doc-intenciones"
+        class="codex-nav-btn group relative px-4 py-3 sm:py-3.5 text-left border-b sm:border-b-0 sm:border-r border-neutral-200/80 dark:border-neutral-800 hover:bg-white dark:hover:bg-neutral-800/50 transition-colors duration-200"
+      >
+        <span class="nav-line absolute top-0 left-0 w-full h-[2px] bg-red-600 dark:bg-red-500 transition-transform duration-200 origin-left scale-x-0"></span>
+        <div class="flex items-center justify-between text-[8px] text-neutral-400 dark:text-neutral-500 mb-0.5">
+          <span class="font-bold text-neutral-500 dark:text-neutral-400">02</span>
+          <span>.LOG</span>
+        </div>
+        <div class="font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white uppercase tracking-wider truncate">
+          Intenciones
+        </div>
+      </a>
+
+      <a
+        href="#doc-brujula"
+        data-codex-target="doc-brujula"
+        class="codex-nav-btn group relative px-4 py-3 sm:py-3.5 text-left border-r border-neutral-200/80 dark:border-neutral-800 hover:bg-white dark:hover:bg-neutral-800/50 transition-colors duration-200"
+      >
+        <span class="nav-line absolute top-0 left-0 w-full h-[2px] bg-red-600 dark:bg-red-500 transition-transform duration-200 origin-left scale-x-0"></span>
+        <div class="flex items-center justify-between text-[8px] text-neutral-400 dark:text-neutral-500 mb-0.5">
+          <span class="font-bold text-neutral-500 dark:text-neutral-400">03</span>
+          <span>.SYS</span>
+        </div>
+        <div class="font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white uppercase tracking-wider truncate">
+          Brújula
+        </div>
+      </a>
+
+      <a
+        href="#doc-estetica"
+        data-codex-target="doc-estetica"
+        class="codex-nav-btn group relative px-4 py-3 sm:py-3.5 text-left hover:bg-white dark:hover:bg-neutral-800/50 transition-colors duration-200"
+      >
+        <span class="nav-line absolute top-0 left-0 w-full h-[2px] bg-red-600 dark:bg-red-500 transition-transform duration-200 origin-left scale-x-0"></span>
+        <div class="flex items-center justify-between text-[8px] text-neutral-400 dark:text-neutral-500 mb-0.5">
+          <span class="font-bold text-neutral-500 dark:text-neutral-400">04</span>
+          <span>.CFG</span>
+        </div>
+        <div class="font-bold text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white uppercase tracking-wider truncate">
+          Estética
+        </div>
+      </a>
+    </div>
+
+    <!-- CUERPO PRINCIPAL DEL CÓDICE (EXPEDIENTES EXPANDIDOS Y ESTRUCTURADOS) -->
+    <div class="p-6 sm:p-10 md:p-12 space-y-10 relative">
+      <!-- SCANLINE SUTIL -->
+      <div
+        class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,19,22,0)_50%,rgba(0,0,0,0.04)_50%)] dark:bg-[linear-gradient(rgba(18,19,22,0)_50%,rgba(0,0,0,0.22)_50%)] bg-[length:100%_4px] opacity-25"
+      >
+      </div>
+
+      <!-- TÍTULO DE LA SECCIÓN DE MANIFIESTO -->
+      <div class="border-b border-neutral-200/90 dark:border-neutral-800/80 pb-6">
+        <div class="flex items-center gap-2 font-mono text-[10px] text-red-600 dark:text-red-400 uppercase tracking-widest mb-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+          <span>SECCIÓN 02 // CÓDICE FUNDAMENTAL</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-neutral-900 dark:text-white tracking-tighter uppercase italic">
+          Manifiesto de Identidad y Creación
+        </h2>
+        <p class="font-mono text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-1">
+          // PRINCIPIOS OPERATIVOS, VULNERABILIDAD Y ARQUITECTURA DE LA PSIQUIS
+        </p>
+      </div>
+
+      <!-- ===================================================================
+           BLOQUE 1: PROPÓSITO + INTENCIONES (GRID 2 COLUMNAS ASIMÉTRICO)
+           =================================================================== -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <!-- 01. PROPÓSITO -->
+        <article
+          id="doc-proposito"
+          class="scroll-mt-28 p-6 sm:p-7 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-800/30 flex flex-col justify-between relative overflow-hidden"
+        >
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] text-red-600 dark:text-red-400 mb-3 border-b border-neutral-200 dark:border-neutral-800 pb-2">
+              <span class="font-bold">// ARCHIVO 01.DAT</span>
+              <span class="text-neutral-400 dark:text-neutral-500 font-medium">GÉNESIS</span>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight mb-3">
+              I. Propósito: El Eco de la Psiquis
+            </h3>
+
+            <blockquote class="my-4 p-3.5 rounded-lg border-l-4 border-red-600 bg-white/70 dark:bg-neutral-900/60 text-sm sm:text-base font-medium text-neutral-800 dark:text-neutral-200 italic leading-relaxed">
+              "No me basta con la palabra desnuda; busco crear un lenguaje donde la <strong class="text-indigo-600 dark:text-indigo-400 not-italic font-bold">música, la tecnología y lo visual</strong> den peso y textura a mis sentimientos."
+            </blockquote>
+
+            <p class="text-neutral-700 dark:text-neutral-300 text-xs sm:text-sm leading-relaxed">
+              Durante años, el silencio fue mi refugio, pero también mi limitación. Mi propósito es romper la barrera de lo indecible. Este proyecto nace de una necesidad visceral de libertad.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-neutral-200 dark:border-neutral-800/80 flex flex-wrap gap-1.5 font-mono text-[9px]">
+            <span class="px-2 py-0.5 rounded bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 uppercase">
+              // ORIGEN: SILENCIO
+            </span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 uppercase font-bold">
+              // META: LIBERTAD
+            </span>
+          </div>
+        </article>
+
+        <!-- 02. INTENCIONES -->
+        <article
+          id="doc-intenciones"
+          class="scroll-mt-28 p-6 sm:p-7 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-800/30 flex flex-col justify-between relative overflow-hidden"
+        >
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] text-red-600 dark:text-red-400 mb-3 border-b border-neutral-200 dark:border-neutral-800 pb-2">
+              <span class="font-bold">// ARCHIVO 02.LOG</span>
+              <span class="text-neutral-400 dark:text-neutral-500 font-medium">MOTOR</span>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight mb-3">
+              II. Intenciones: La Vulnerabilidad
+            </h3>
+
+            <blockquote class="my-4 p-3.5 rounded-lg border-l-4 border-red-600 bg-white/70 dark:bg-neutral-900/60 text-sm sm:text-base font-medium text-neutral-800 dark:text-neutral-200 italic leading-relaxed">
+              "Mi intención es desnudar mi identidad ante quien decida observar. Comparto mis luces y, con la misma honestidad, <strong class="text-neutral-900 dark:text-white not-italic font-bold">mis sombras</strong>."
+            </blockquote>
+
+            <p class="text-neutral-700 dark:text-neutral-300 text-xs sm:text-sm leading-relaxed mb-4">
+              Entiendo que no se puede aspirar a la grandeza si nos escondemos tras el miedo o las voces que nos desalientan. La autenticidad absoluta no busca aprobación, busca resonancia.
+            </p>
+
+            <!-- Medidor HUD Luces vs Sombras -->
+            <div class="p-3 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/50 font-mono text-[9px] sm:text-[10px]">
+              <div class="flex justify-between mb-1 font-bold">
+                <span class="text-indigo-600 dark:text-indigo-400 uppercase">LUCES // 50%</span>
+                <span class="text-red-600 dark:text-red-400 uppercase">SOMBRAS // 50%</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700 overflow-hidden flex">
+                <div class="w-1/2 h-full bg-indigo-500"></div>
+                <div class="w-1/2 h-full bg-red-600"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-neutral-200 dark:border-neutral-800/80 font-mono text-[9px] text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
+            ESTADO: TRANSPARENCIA TOTAL
+          </div>
+        </article>
+      </div>
+
+      <!-- ===================================================================
+           BLOQUE 2: BRÚJULA (MATRIZ DE 4 CUADRANTES DE PRINCIPIOS)
+           =================================================================== -->
+      <article
+        id="doc-brujula"
+        class="scroll-mt-28 p-6 sm:p-8 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-neutral-100/40 dark:bg-neutral-800/25"
+      >
+        <div class="flex items-center justify-between font-mono text-[10px] text-red-600 dark:text-red-400 mb-2 border-b border-neutral-200 dark:border-neutral-800 pb-2">
+          <span class="font-bold">// ARCHIVO 03.SYS</span>
+          <span class="text-neutral-400 dark:text-neutral-500 font-medium">MATRIZ DE VALORES</span>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white tracking-tight">
+            III. Principios: El Norte de la Brújula
+          </h3>
+          <p class="font-mono text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-0.5">
+            // CUATRO CUADRANTES DE ORIENTACIÓN PARA LA CREACIÓN Y LA VIDA
+          </p>
+        </div>
+
+        <!-- Matriz de 4 Cuadrantes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
+          <!-- Q1 -->
+          <div class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex flex-col justify-between">
+            <div>
+              <span class="text-[9px] font-bold text-indigo-600 dark:text-indigo-400 uppercase block mb-1">
+                [Q1 · NORTE]
+              </span>
+              <h4 class="text-sm sm:text-base font-bold text-neutral-900 dark:text-white font-sans mb-1">
+                Creatividad y Libertad
+              </h4>
+              <p class="text-[11px] text-neutral-600 dark:text-neutral-400 leading-snug font-sans">
+                Herramientas fundamentales de expansión.
+              </p>
+            </div>
+            <span class="text-[8px] text-neutral-400 dark:text-neutral-500 mt-4 pt-2 border-t border-neutral-100 dark:border-neutral-800 uppercase">
+              VECTOR: EXPANSIÓN
+            </span>
+          </div>
+
+          <!-- Q2 -->
+          <div class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex flex-col justify-between">
+            <div>
+              <span class="text-[9px] font-bold text-red-600 dark:text-red-400 uppercase block mb-1">
+                [Q2 · OESTE]
+              </span>
+              <h4 class="text-sm sm:text-base font-bold text-neutral-900 dark:text-white font-sans mb-1">
+                Aceptación y Perdón
+              </h4>
+              <p class="text-[11px] text-neutral-600 dark:text-neutral-400 leading-snug font-sans">
+                Para desarticular el dolor y sanar el pasado.
+              </p>
+            </div>
+            <span class="text-[8px] text-neutral-400 dark:text-neutral-500 mt-4 pt-2 border-t border-neutral-100 dark:border-neutral-800 uppercase">
+              VECTOR: SANACIÓN
+            </span>
+          </div>
+
+          <!-- Q3 -->
+          <div class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex flex-col justify-between">
+            <div>
+              <span class="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 uppercase block mb-1">
+                [Q3 · ESTE]
+              </span>
+              <h4 class="text-sm sm:text-base font-bold text-neutral-900 dark:text-white font-sans mb-1">
+                Constancia y Confianza
+              </h4>
+              <p class="text-[11px] text-neutral-600 dark:text-neutral-400 leading-snug font-sans">
+                Para sostener la visión y construir el futuro.
+              </p>
+            </div>
+            <span class="text-[8px] text-neutral-400 dark:text-neutral-500 mt-4 pt-2 border-t border-neutral-100 dark:border-neutral-800 uppercase">
+              VECTOR: CONSTRUCCIÓN
+            </span>
+          </div>
+
+          <!-- Q4 -->
+          <div class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex flex-col justify-between">
+            <div>
+              <span class="text-[9px] font-bold text-yellow-600 dark:text-yellow-400 uppercase block mb-1">
+                [Q4 · SUR]
+              </span>
+              <h4 class="text-sm sm:text-base font-bold text-neutral-900 dark:text-white font-sans mb-1">
+                Intimidad y Paz
+              </h4>
+              <p class="text-[11px] text-neutral-600 dark:text-neutral-400 leading-snug font-sans">
+                El estado final y sagrado de cada obra.
+              </p>
+            </div>
+            <span class="text-[8px] text-neutral-400 dark:text-neutral-500 mt-4 pt-2 border-t border-neutral-100 dark:border-neutral-800 uppercase">
+              VECTOR: DESTINO
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================================================================
+           BLOQUE 3: ESTÉTICA DE LO INVISIBLE + ADN VISUAL
+           =================================================================== -->
+      <article
+        id="doc-estetica"
+        class="scroll-mt-28 p-6 sm:p-8 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-800/30"
+      >
+        <div class="flex items-center justify-between font-mono text-[10px] text-red-600 dark:text-red-400 mb-2 border-b border-neutral-200 dark:border-neutral-800 pb-2">
+          <span class="font-bold">// ARCHIVO 04.CFG</span>
+          <span class="text-neutral-400 dark:text-neutral-500 font-medium">ADN VISUAL</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-7">
+            <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight mb-2">
+              IV. Ideas: La Estética de lo Invisible
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              Mi universo se construye con fragmentos de lo que amo y lo que me obsesiona. Este proyecto tiene la textura de los <strong class="text-indigo-600 dark:text-indigo-400 font-bold">colores opacos y grises</strong>, la calma del <strong class="text-neutral-900 dark:text-white font-bold">Lo-Fi</strong> y la complejidad de la psiquis humana.
+            </p>
+          </div>
+
+          <!-- Muestrario de Paleta Táctica -->
+          <div class="md:col-span-5 grid grid-cols-2 gap-2.5 font-mono text-[10px]">
+            <div class="p-2.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#525252] border border-neutral-400 shrink-0"></span>
+              <div>
+                <span class="block font-bold text-neutral-800 dark:text-neutral-200 text-[10px]">GRAFITO</span>
+                <span class="text-neutral-500 text-[8px]">OPACIDAD</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-red-600 border border-red-400 shrink-0"></span>
+              <div>
+                <span class="block font-bold text-neutral-800 dark:text-neutral-200 text-[10px]">CARMESÍ</span>
+                <span class="text-neutral-500 text-[8px]">SILENT HILL</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-cyan-700 border border-cyan-400 shrink-0"></span>
+              <div>
+                <span class="block font-bold text-neutral-800 dark:text-neutral-200 text-[10px]">BLUEPRINT</span>
+                <span class="text-neutral-500 text-[8px]">TÉCNICO</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-neutral-400 noise-bg border border-neutral-400 shrink-0"></span>
+              <div>
+                <span class="block font-bold text-neutral-800 dark:text-neutral-200 text-[10px]">LO-FI</span>
+                <span class="text-neutral-500 text-[8px]">ANALÓGICO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- PIE DEL CÓDICE TÁCTICO: VERIFICACIÓN -->
+    <div
+      class="border-t border-neutral-200/90 dark:border-neutral-800/80 px-6 sm:px-8 py-3.5 bg-neutral-100/60 dark:bg-neutral-900/60 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] sm:text-[11px]"
+    >
+      <div class="flex items-center gap-2">
+        <span class="text-neutral-400 dark:text-neutral-500 tracking-wider">
+          CHECKSUM:
+        </span>
+        <span class="text-red-600 dark:text-red-400 font-bold">
+          0x7F29B0 // DOCTRINA_VALIDADA
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2 text-[9px] uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+        <span>SISTEMA: SNXWY-CORE</span>
+        <span>·</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-bold">EN LÍNEA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initCodexNavigation() {
+    const navButtons = document.querySelectorAll<HTMLAnchorElement>(".codex-nav-btn");
+
+    navButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const targetId = btn.getAttribute("data-codex-target");
+        if (!targetId) return;
+
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const targetY = targetEl.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+
+          // Activa visualmente la pestaña tocada
+          navButtons.forEach((b) => {
+            const line = b.querySelector<HTMLElement>(".nav-line");
+            if (line) line.style.transform = "scaleX(0)";
+          });
+          const activeLine = btn.querySelector<HTMLElement>(".nav-line");
+          if (activeLine) activeLine.style.transform = "scaleX(1)";
+        }
+      });
+    });
+
+    // Observer para sincronizar los botones de la barra superior según el scroll dentro del Códice
+    const moduleIds = ["doc-proposito", "doc-intenciones", "doc-brujula", "doc-estetica"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.id;
+            navButtons.forEach((btn) => {
+              const target = btn.getAttribute("data-codex-target");
+              const line = btn.querySelector<HTMLElement>(".nav-line");
+              if (target === activeId) {
+                if (line) line.style.transform = "scaleX(1)";
+              } else {
+                if (line) line.style.transform = "scaleX(0)";
+              }
+            });
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+
+    moduleIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  }
+
+  initCodexNavigation();
+  document.addEventListener("astro:after-swap", initCodexNavigation);
+</script>

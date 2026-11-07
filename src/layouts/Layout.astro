@@ -2,107 +2,74 @@
 import "@styles/global.css";
 import "@fontsource/ubuntu";
 import { ClientRouter } from "astro:transitions";
-import Navbar from "@components/ui/Navbar.astro";
-import LigthLogo from "@assets/logos/LigthLogo.svg";
+import Navbar from "@components/layout/Navbar.astro";
+import Footer from "@components/layout/Footer.astro";
 
-const { title } = Astro.props;
+export interface Props {
+  title?: string;
+  description?: string;
+  breadcrumb?: string;
+}
+
+const {
+  title = "Snowy",
+  description = "Exploración de la psiquis, identidad, arte y tecnología — Snowy",
+  breadcrumb,
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
     <ClientRouter />
     <title>{title}</title>
+
+    <!-- Script inline para prevenir FOUC (parpadeo de tema) -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+
+      const setDarkClass = () => {
+        const isDark = getTheme() === "dark";
+        document.documentElement.classList.toggle("dark", isDark);
+      };
+
+      setDarkClass();
+      document.addEventListener("astro:after-swap", setDarkClass);
+    </script>
   </head>
 
-  <body class="bg-[#1a1a1a] flex justify-center m-0 p-0">
+  <body
+    class="bg-[#f4f5f7] dark:bg-[#121316] text-neutral-900 dark:text-neutral-100 min-h-screen flex flex-col relative selection:bg-neutral-900 selection:text-white dark:selection:bg-neutral-100 dark:selection:text-neutral-900 transition-colors duration-300"
+  >
+    <!-- Fondo Blueprint Técnico + Cuadrícula + Textura (Full Viewport) -->
+    <div class="fixed inset-0 z-0 pointer-events-none blueprint-bg"></div>
     <div
-      class="relative w-full md:w-[75vw] lg:w-[65vw] min-h-screen bg-[#f5f5f5] shadow-[0_0_60px_rgba(0,0,0,0.4)] flex flex-col"
+      class="fixed inset-0 z-0 pointer-events-none opacity-[0.035] dark:opacity-[0.02] mix-blend-multiply dark:mix-blend-screen noise-bg"
     >
-      <div
-        class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
-        style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);"
-      >
-        <div
-          class="absolute inset-0"
-          style="background-image: 
-                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-                background-size: 30px 30px;"
-        >
-        </div>
+    </div>
 
-        <div
-          class="absolute inset-0 opacity-[0.03] mix-blend-multiply noise-bg"
-        >
-        </div>
-      </div>
+    <!-- Contenedor principal centrado -->
+    <div class="relative z-10 flex flex-col min-h-screen w-full">
+      <Navbar customBreadcrumb={breadcrumb} />
 
-      <header class="relative z-20 w-full">
-        <Navbar />
-      </header>
-
-      <main class="relative z-10 p-8 md:px-20 lg:px-40 flex-1">
+      <main class="w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-12 flex-1">
         <slot />
       </main>
 
-      <footer class="relative z-10 py-8 text-center">
-        <div class="flex justify-center pb-4">
-          <img src={LigthLogo.src} alt="Logo" width="40" height="40" />
-        </div>
-        <span class="text-[9px] uppercase tracking-[0.4em] text-neutral-400">
-          Exploración de la Psiquis — 2026
-        </span>
-      </footer>
+      <Footer />
     </div>
   </body>
 </html>
-
-<style is:global>
-  /* CONFIGURACIÓN GLOBAL */
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-    font-family: "ubuntu", sans-serif;
-    animation: fadeIn 0.5s ease-in;
-
-    /* 1. Mantiene el layout centrado y estable */
-    scrollbar-gutter: stable;
-    scroll-behavior: smooth;
-
-    /* 2. Oculta el scrollbar en Firefox */
-    scrollbar-width: none;
-
-    /* 3. Oculta el scrollbar en Internet Explorer y Edge antiguo */
-    -ms-overflow-style: none;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* 4. Oculta el scrollbar en Chrome, Safari y Edge moderno (Webkit) */
-  ::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-
-  /* TEXTURA DE RUIDO (Data URI) */
-  .noise-bg {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyACMAAAC0ID9IAAAABlBMVEUAAAD///+l2Z/dAAAAVklEQVRIx+3Myw2AMAhE0S8NoAn9V0In9GCD6SDRSJhAsu9mH8m+DEDfA6A7A6D7GgA9pAn9xwLo6QTo8QZo6QTo8QZo6QTo8QZo6QTo8QZo6QTo8QZo6QTof56yGz6S999lAAAAAElFTkSuQmCC");
-    background-repeat: repeat;
-  }
-</style>

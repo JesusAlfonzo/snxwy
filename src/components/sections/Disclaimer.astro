@@ -1,73 +1,163 @@
-<div
-  class="mt-20 p-8 md:p-14 border-t-2 border-b-2 border-red-900/50 bg-black/90 backdrop-blur-md relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.3)]"
+---
+// Disclaimer.astro - Directiva de Aclaratoria y Protocolo del Sistema
+---
+
+<section
+  aria-label="Directiva de Aclaratoria y Términos"
+  class="mt-16 sm:mt-20 mb-8 sm:mb-10 w-full"
 >
+  <!-- MARCO PRINCIPAL: DOCUMENTO CLASIFICADO / DIRECTIVA TÁCTICA -->
   <div
-    class="absolute -top-24 -left-24 w-48 h-48 bg-red-900/20 blur-[100px] pointer-events-none"
+    class="relative rounded-2xl border-2 border-red-900/40 dark:border-red-900/60 bg-[#0e0f12] text-neutral-200 p-6 sm:p-10 md:p-12 shadow-2xl overflow-hidden"
   >
-  </div>
-
-  <div class="relative z-10">
-    <div class="flex flex-col gap-1 mb-10">
-      <div class="flex items-center gap-3">
-        <span class="h-[2px] w-8 bg-red-600"></span>
-        <span
-          class="text-red-500 font-mono text-[11px] tracking-[0.5em] uppercase font-bold"
-        >
-          Aviso del Sistema
-        </span>
-      </div>
-      <h2
-        class="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase italic"
-      >
-        Nota de <span class="text-red-600">Aclaratoria</span>
-      </h2>
-    </div>
-
-    <article
-      class="prose prose-invert max-w-none
-      prose-p:text-neutral-200 prose-p:leading-relaxed prose-p:text-xl md:prose-p:text-2xl
-      prose-strong:text-white prose-strong:font-black prose-strong:underline prose-strong:decoration-red-800
-      prose-span:text-red-500 prose-span:font-mono"
-    >
-      <p>
-        Este espacio opera bajo una lógica puramente <strong
-          >creativa y expresiva</strong
-        >. No existe beneficio económico ni fines comerciales; es una extensión
-        de la subjetividad personal en el tejido digital.
-      </p>
-
-      <p>
-        Las estéticas aquí presentes se inspiran en la <strong
-          >atmósfera opresiva de Silent Hill</strong
-        >
-        y la melancolía del <strong>Lo-fi</strong>. Son fragmentos de un mundo
-        imaginario, no reflejos literales de la realidad.
-      </p>
-
-      <p>
-        <strong>Privacidad:</strong> No se revelarán nombres, rostros ni eventos privados.
-        Este proyecto respeta el anonimato de terceros, utilizando solo elementos
-        abstractos para la composición.
-      </p>
-    </article>
-
+    <!-- Luces de advertencia ambiental (Glow sutil) -->
     <div
-      class="mt-12 pt-6 border-t border-neutral-800/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+      class="absolute -top-28 -left-28 w-60 h-60 bg-red-900/20 blur-[110px] pointer-events-none"
     >
-      <div class="font-mono text-[11px] text-white uppercase tracking-widest">
-        Id: <span class="text-red-600 animate-pulse">SNXWY_PROY_JA</span>
+    </div>
+    <div
+      class="absolute -bottom-28 -right-28 w-60 h-60 bg-red-950/25 blur-[120px] pointer-events-none"
+    >
+    </div>
+
+    <!-- Scanline táctica sobreimpresa -->
+    <div
+      class="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,19,22,0)_50%,rgba(0,0,0,0.35)_50%)] bg-[length:100%_4px] opacity-25"
+    >
+    </div>
+
+    <div class="relative z-10">
+      <!-- CABECERA DE LA DIRECTIVA: MARCADORES MILITARES -->
+      <div
+        class="flex flex-wrap items-center justify-between gap-3 border-b border-red-900/40 pb-5 mb-8 font-mono text-[10px] sm:text-[11px]"
+      >
+        <div class="flex items-center gap-2.5">
+          <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+          <span
+            class="text-red-500 font-bold tracking-[0.25em] uppercase"
+          >
+            DIRECTIVA DE SEGURIDAD // AVISO DEL SISTEMA
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span
+            class="px-2.5 py-0.5 rounded border border-red-600/40 bg-red-950/60 text-red-400 font-bold uppercase tracking-widest text-[9px]"
+          >
+            PRIORIDAD: OBLIGATORIA
+          </span>
+          <span class="text-neutral-400 tracking-wider hidden sm:inline">
+            SEC_ID: 00-DISC
+          </span>
+        </div>
       </div>
 
-      <div class="flex items-center gap-2">
-        <span class="font-mono text-[10px] text-white bg-neutral-900 px-2 py-1">
-          ESTADO:
-        </span>
-        <span
-          class="font-mono text-[10px] text-yellow-500 bg-neutral-900 px-2 py-1 animate-pulse border border-yellow-500/20"
+      <!-- TÍTULO PRINCIPAL DEL DOCUMENTO -->
+      <div class="mb-10">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tighter uppercase italic flex items-center gap-3"
         >
-          ACTIVO
-        </span>
+          Nota de <span class="text-red-600 drop-shadow-[0_0_12px_rgba(220,38,38,0.4)]">Aclaratoria</span>
+        </h2>
+        <p class="font-mono text-xs sm:text-sm text-neutral-400 uppercase tracking-widest mt-1">
+          // PROTOCOLO DE DIVULGACIÓN, ESTÉTICA Y SALVAGUARDA DE PRIVACIDAD
+        </p>
+      </div>
+
+      <!-- MATRIZ DE CLÁUSULAS / ARTÍCULOS TÁCTICOS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        <!-- CLÁUSULA 01 -->
+        <article
+          class="relative rounded-xl border border-neutral-800/90 bg-neutral-900/60 p-5 sm:p-6 backdrop-blur-xs flex flex-col justify-between hover:border-red-900/50 transition-colors duration-300"
+        >
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] text-red-500/90 mb-3 border-b border-neutral-800/80 pb-2">
+              <span class="font-bold">// PARÁMETRO 01</span>
+              <span class="text-neutral-400 font-medium">NATURALEZA</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-2 tracking-tight">
+              Lógica No Comercial
+            </h3>
+            <p class="text-neutral-300 text-sm leading-relaxed">
+              Este espacio opera bajo una lógica puramente <strong class="text-white font-bold underline decoration-red-800">creativa y expresiva</strong>. No existe beneficio económico ni fines comerciales; es una extensión de la subjetividad personal en el tejido digital.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-neutral-800/50 font-mono text-[9px] text-neutral-400 uppercase tracking-widest">
+            ESTATUTO: NO MONETIZADO
+          </div>
+        </article>
+
+        <!-- CLÁUSULA 02 -->
+        <article
+          class="relative rounded-xl border border-neutral-800/90 bg-neutral-900/60 p-5 sm:p-6 backdrop-blur-xs flex flex-col justify-between hover:border-red-900/50 transition-colors duration-300"
+        >
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] text-red-500/90 mb-3 border-b border-neutral-800/80 pb-2">
+              <span class="font-bold">// PARÁMETRO 02</span>
+              <span class="text-neutral-400 font-medium">SIMULACIÓN</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-2 tracking-tight">
+              Ficción Atmosférica
+            </h3>
+            <p class="text-neutral-300 text-sm leading-relaxed">
+              Las estéticas se inspiran en la <strong class="text-white font-bold underline decoration-red-800">atmósfera opresiva de Silent Hill</strong> y la melancolía del <strong class="text-white font-bold">Lo-fi</strong>. Son fragmentos de un mundo imaginario, no reflejos literales de la realidad.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-neutral-800/50 font-mono text-[9px] text-neutral-400 uppercase tracking-widest">
+            INSPIRACIÓN: PSIQUIS // HORROR
+          </div>
+        </article>
+
+        <!-- CLÁUSULA 03 -->
+        <article
+          class="relative rounded-xl border border-neutral-800/90 bg-neutral-900/60 p-5 sm:p-6 backdrop-blur-xs flex flex-col justify-between hover:border-red-900/50 transition-colors duration-300"
+        >
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] text-red-500/90 mb-3 border-b border-neutral-800/80 pb-2">
+              <span class="font-bold">// PARÁMETRO 03</span>
+              <span class="text-neutral-400 font-medium">SALVAGUARDA</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-2 tracking-tight">
+              Privacidad y Anonimato
+            </h3>
+            <p class="text-neutral-300 text-sm leading-relaxed">
+              <strong class="text-white font-bold underline decoration-red-800">No se revelarán nombres</strong>, rostros identificables ni eventos privados. Este proyecto respeta el anonimato de terceros, utilizando únicamente elementos abstractos para la composición.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-neutral-800/50 font-mono text-[9px] text-neutral-400 uppercase tracking-widest">
+            PROTECCIÓN: RIGUROSA
+          </div>
+        </article>
+      </div>
+
+      <!-- PIE DEL PROTOCOLO: VERIFICACIÓN Y REGISTRO -->
+      <div
+        class="pt-6 border-t border-neutral-800/80 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 font-mono text-[11px]"
+      >
+        <div class="flex items-center gap-3">
+          <span class="text-neutral-400 uppercase tracking-widest">
+            REGISTRO:
+          </span>
+          <span class="text-red-500 font-bold tracking-wider animate-pulse">
+            SNXWY_PROY_JA
+          </span>
+          <span class="text-neutral-600 hidden md:inline">|</span>
+          <span class="text-neutral-400 text-[10px] hidden md:inline">
+            CRC: 0x94FA28
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] text-neutral-400 bg-neutral-900/80 border border-neutral-800 px-2.5 py-1 uppercase tracking-wider">
+            ESTADO:
+          </span>
+          <span
+            class="text-[10px] text-yellow-500 bg-neutral-900/90 px-2.5 py-1 font-bold animate-pulse border border-yellow-500/30 tracking-widest uppercase"
+          >
+            ACTIVO // VIGENTE
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

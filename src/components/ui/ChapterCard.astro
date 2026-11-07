@@ -1,15 +1,10 @@
 ---
 import { Image } from "astro:assets";
-export interface Props {
-  title: string;
-  subtitle: string;
-  href?: string;
-  image?: string;
-  bgColor?: string;
-  width?: number;
-  height?: number;
-  blocked?: boolean;
-}
+import type { ImageMetadata } from "astro";
+import type { Chapter } from "@/types";
+
+export type Props = Chapter;
+
 const {
   title,
   subtitle,
@@ -20,13 +15,26 @@ const {
   height = 305,
   blocked = false,
 } = Astro.props;
-let bgImage = null;
+
+let bgImage: ImageMetadata | undefined = undefined;
 if (image) {
-  try {
-    const imageModule = await import(`../../assets/images/${image}`);
-    bgImage = imageModule.default;
-  } catch (e) {
-    console.warn(`Image ${image} not found, using solid background`);
+  if (typeof image === "string") {
+    const images = import.meta.glob<{ default: ImageMetadata }>(
+      "/src/assets/images/**/*.{jpeg,jpg,png,gif,webp,svg}",
+      { eager: true }
+    );
+    const normalizedPath = image.startsWith("/src/assets/images/")
+      ? image
+      : `/src/assets/images/${image.replace(/^\//, "")}`;
+
+    const mod = images[normalizedPath];
+    if (mod) {
+      bgImage = mod.default;
+    } else {
+      console.warn(`[ChapterCard] Image not found: ${normalizedPath}`);
+    }
+  } else {
+    bgImage = image;
   }
 }
 ---
@@ -34,8 +42,8 @@ if (image) {
 {
   blocked ? (
     <div class="block w-full max-w-sm">
-      <div class="relative rounded-xl shadow-lg transition-all duration-300 mb-1 w-full aspect-square cursor-not-allowed opacity-75">
-        <div class="absolute inset-0 bg-black/90 transition-all duration-300">
+      <div class="relative rounded-xl shadow-lg transition-all duration-300 mb-1 w-full aspect-square cursor-not-allowed opacity-75 border border-transparent dark:border-neutral-800/80">
+        <div class="absolute inset-0 bg-black/90 transition-all duration-300 rounded-xl overflow-hidden">
           {bgImage && (
             <Image
               src={bgImage}
@@ -59,23 +67,38 @@ if (image) {
       </div>
     </div>
   ) : (
-    <a href={href} class="block w-full max-w-sm">
-      <div class="relative rounded-xl shadow-lg transition-all duration-300 mb-1 hover:scale-[1.02] group cursor-pointer w-full aspect-square">
+    <a href={href} class="block w-full max-w-sm group">
+      <div class="relative rounded-xl shadow-lg transition-all duration-300 mb-1 hover:scale-[1.02] cursor-pointer w-full aspect-square border border-neutral-300/70 dark:border-neutral-800 hover:border-neutral-500 dark:hover:border-neutral-600 overflow-hidden">
         <div class={`absolute inset-0 ${bgColor} transition-all duration-300`}>
           {bgImage && (
             <Image
               src={bgImage}
               alt="Background"
-              class="absolute inset-0 w-full h-full object-cover blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              class="absolute inset-0 w-full h-full object-cover blur-xs opacity-25 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
             />
           )}
+          <!-- Degradado para legibilidad del texto -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/30 group-hover:from-black/90 group-hover:via-black/50 transition-colors"></div>
+        </div>
+
+        <!-- Indicador de Desbloqueado en la esquina superior -->
+        <div class="absolute top-3 right-3 z-20">
+          <span class="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold backdrop-blur-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            DISPONIBLE
+          </span>
         </div>
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full p-4 sm:p-6 text-center">
-          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1 group-hover:text-red-400 transition-colors">
             {title}
           </h3>
-          <p class="text-xs sm:text-sm text-neutral-300">{subtitle}</p>
+          <p class="text-xs sm:text-sm text-neutral-300 font-mono">{subtitle}</p>
+
+          <div class="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 font-mono text-[10px] text-white bg-black/70 px-3 py-1 rounded-full border border-neutral-600 flex items-center gap-1.5">
+            <span>INGRESAR</span>
+            <span>→</span>
+          </div>
         </div>
       </div>
     </a>

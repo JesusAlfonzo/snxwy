@@ -1,63 +1,235 @@
 ---
-// Obtenemos la ruta actual para saber qué enlace resaltar
+import ThemeToggle from "@components/ui/ThemeToggle.astro";
+import type { NavItem, Breadcrumb } from "@/types";
+
+export interface Props {
+  customBreadcrumb?: string;
+}
+
+const { customBreadcrumb } = Astro.props;
 const { pathname } = Astro.url;
 
-// Una pequeña función para verificar si la ruta coincide
-// Eliminamos las barras diagonales al final para evitar errores de comparación
-const isActive = (path: string) => {
-  if (path === "/" && pathname === "/") return true;
-  if (path !== "/" && pathname.startsWith(path)) return true;
-  return false;
+// Diccionario de traducciones/etiquetas amigables para rutas conocidas
+const ROUTE_LABELS: Record<string, string> = {
+  "": "INICIO",
+  "mind": "MENTE",
+  "gallery": "GALERÍA",
+  "projects": "PROYECTOS",
+  "about": "ACERCA",
+  "manifesto": "MANIFIESTO",
 };
 
-// Clases para el estado ACTIVO (Subrayado fijo)
-const activeClass = "text-neutral-900 border-b border-neutral-900 pb-1";
+// Segmentos limpios de la URL
+const segments = pathname.split("/").filter(Boolean);
+const isHome = segments.length === 0;
 
-// Clases para el estado INACTIVO (Gris con efecto hover)
-const inactiveClass =
-  "text-neutral-400 hover:text-neutral-900 transition-all duration-300 relative group";
+// Construcción dinámica de migas de pan
+const breadcrumbs: Breadcrumb[] = segments.map((seg, index) => {
+  const path = "/" + segments.slice(0, index + 1).join("/");
+  const isLast = index === segments.length - 1;
+  const label =
+    isLast && customBreadcrumb
+      ? customBreadcrumb.toUpperCase()
+      : ROUTE_LABELS[seg.toLowerCase()] ||
+        decodeURIComponent(seg).replace(/-/g, " ").toUpperCase();
+  return { label, path, isLast };
+});
+
+// Enlaces principales del menú
+const navItems: NavItem[] = [
+  { label: "Inicio", href: "/", id: "inicio" },
+  { label: "Manifiesto", href: "/#Manifesto", id: "manifiesto" },
+  { label: "Mente", href: "/mind", id: "mente" },
+];
 ---
 
-<nav class="flex justify-center items-center py-8 md:py-11 px-6">
-  <ul class="flex gap-8 md:gap-20 items-center justify-center">
-    <li>
-      <a
-        href="/#Manifesto"
-        class={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold ${inactiveClass}`}
-      >
-        Manifesto
-        <span
-          class="absolute -bottom-1 left-0 w-0 h-[1px] bg-neutral-900 transition-all duration-300 group-hover:w-full"
-        ></span>
-      </a>
-    </li>
-
-    <li>
+<header
+  class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#f4f5f7]/85 dark:bg-[#121316]/85 border-b border-neutral-200/60 dark:border-neutral-800/60 transition-colors duration-300"
+>
+  <div
+    class="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-between"
+  >
+    <!-- BREADCRUMBS GLOBAL Y DINÁMICO (Izquierda) -->
+    <nav
+      aria-label="Ruta de navegación"
+      class="flex items-center gap-1.5 sm:gap-2 font-mono text-[10px] sm:text-[11px] tracking-wider select-none"
+    >
       <a
         href="/"
-        class={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold ${isActive("/") ? activeClass : inactiveClass}`}
+        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors flex items-center gap-1.5 font-bold"
+        title="Inicio"
       >
-        Inicio
-        {
-          !isActive("/") && (
-            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-neutral-900 transition-all duration-300 group-hover:w-full" />
-          )
-        }
+        <span
+          class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+          title="Sistema activo"
+        ></span>
+        SNXWY
       </a>
-    </li>
 
-    <li>
-      <a
-        href="/mind"
-        class={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold ${isActive("/mind") ? activeClass : inactiveClass}`}
+      <span class="text-neutral-300 dark:text-neutral-600 select-none">/</span>
+
+      {isHome ? (
+        <>
+          <span
+            id="breadcrumb-page"
+            class="text-neutral-800 dark:text-neutral-200 uppercase font-bold"
+          >
+            INICIO
+          </span>
+          <span
+            id="breadcrumb-sub"
+            class="hidden text-neutral-400 dark:text-neutral-500 uppercase transition-opacity duration-300"
+          >
+            <span class="text-neutral-300 dark:text-neutral-600 select-none mx-0.5">/</span>
+            <span id="breadcrumb-sub-text">MANIFIESTO</span>
+          </span>
+        </>
+      ) : (
+        breadcrumbs.map((crumb, idx) => (
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            {crumb.isLast ? (
+              <span class="text-neutral-800 dark:text-neutral-200 uppercase font-bold">
+                {crumb.label}
+              </span>
+            ) : (
+              <>
+                <a
+                  href={crumb.path}
+                  class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors"
+                >
+                  {crumb.label}
+                </a>
+                <span class="text-neutral-300 dark:text-neutral-600 select-none">/</span>
+              </>
+            )}
+          </div>
+        ))
+      )}
+    </nav>
+
+    <!-- ENLACES DE NAVEGACIÓN + THEME TOGGLE (Derecha) -->
+    <div class="flex items-center gap-4 sm:gap-7">
+      <ul
+        class="flex items-center gap-4 sm:gap-8 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-bold"
       >
-        Mente
-        {
-          !isActive("/mind") && (
-            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-neutral-900 transition-all duration-300 group-hover:w-full" />
-          )
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-nav-item={item.id}
+              class="nav-link relative py-1 text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors duration-200"
+            >
+              {item.label}
+              <span
+                class="nav-line absolute -bottom-1 left-0 w-full h-[1.5px] bg-neutral-900 dark:bg-neutral-100 transition-transform duration-300 origin-left scale-x-0"
+              ></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="h-4 w-[1px] bg-neutral-300 dark:bg-neutral-700 hidden sm:block"></div>
+
+      <!-- THEME TOGGLE -->
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<script>
+  function initNavigation() {
+    const pathname = window.location.pathname.replace(/\/$/, "");
+    const isHome = pathname === "";
+
+    const navLinks: Record<string, HTMLElement | null> = {
+      inicio: document.querySelector('[data-nav-item="inicio"]'),
+      manifiesto: document.querySelector('[data-nav-item="manifiesto"]'),
+      mente: document.querySelector('[data-nav-item="mente"]'),
+    };
+
+    const breadcrumbSub = document.getElementById("breadcrumb-sub");
+
+    function setActive(targetId: string | null) {
+      Object.entries(navLinks).forEach(([key, link]) => {
+        if (!link) return;
+        const line = link.querySelector(".nav-line") as HTMLElement | null;
+        if (key === targetId) {
+          link.classList.add("text-neutral-900", "dark:text-white");
+          link.classList.remove("text-neutral-400", "dark:text-neutral-400");
+          if (line) line.style.transform = "scaleX(1)";
+        } else {
+          link.classList.remove("text-neutral-900", "dark:text-white");
+          link.classList.add("text-neutral-400", "dark:text-neutral-400");
+          if (line) line.style.transform = "scaleX(0)";
         }
-      </a>
-    </li>
-  </ul>
-</nav>
+      });
+
+      if (breadcrumbSub) {
+        if (targetId === "manifiesto") {
+          breadcrumbSub.classList.remove("hidden");
+        } else {
+          breadcrumbSub.classList.add("hidden");
+        }
+      }
+    }
+
+    if (isHome) {
+      if (window.location.hash === "#Manifesto") {
+        setActive("manifiesto");
+      } else {
+        setActive("inicio");
+      }
+
+      // Smooth scroll hacia arriba al hacer click en Inicio en Home
+      navLinks.inicio?.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.location.hash) {
+          history.pushState(null, "", "/");
+        }
+        setActive("inicio");
+      });
+
+      // Smooth scroll hacia Manifiesto con compensación del header sticky
+      navLinks.manifiesto?.addEventListener("click", (e) => {
+        const manifestoSec = document.getElementById("Manifesto");
+        if (manifestoSec) {
+          e.preventDefault();
+          const targetY =
+            manifestoSec.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+          history.pushState(null, "", "/#Manifesto");
+          setActive("manifiesto");
+        }
+      });
+
+      // Observer para sincronizar según el scroll en Home
+      const manifestoSection = document.getElementById("Manifesto");
+      if (manifestoSection) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActive("manifiesto");
+              } else if (window.scrollY < 350) {
+                setActive("inicio");
+              }
+            });
+          },
+          { rootMargin: "-25% 0px -50% 0px" }
+        );
+        observer.observe(manifestoSection);
+      }
+    } else {
+      // En cualquier otra vista (ej. /mind)
+      if (pathname.startsWith("/mind")) {
+        setActive("mente");
+      } else {
+        setActive(null);
+      }
+    }
+  }
+
+  initNavigation();
+  document.addEventListener("astro:after-swap", initNavigation);
+</script>
